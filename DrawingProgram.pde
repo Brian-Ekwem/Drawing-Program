@@ -26,11 +26,12 @@ void setup() {
   fill(purple);
   rect(purpleX, purpleY, purpleW, purpleH);
   //
-  if (mouseX>quitButtonX && mouseX<quitButtonX+quitButtonW && mouseY>quitButtonY && mouseY<quitButtonY+quitButtonH) { 
+  if ( mouseX>quitButtonX && mouseX<quitButtonX+quitButtonW && mouseY>quitButtonY && mouseY<quitButtonY+quitButtonH ) { 
     quitButtonColour = red;
   } else { 
-    quitButtonColour = white;
+     quitButtonColour = white;
   } 
+  textDraw();
   fill(red);
   rect(quitButtonX, quitButtonY, quitButtonW, quitButtonH);
   fill(black);
