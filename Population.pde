@@ -32,8 +32,20 @@ void drawingSurface() {
   purpleY = height*7/8;
   purpleW = width*1/40;
   purpleH = height*1/30;
+  blackX = width*3.1/12;
+  blackY = height*7/8;
+  blackW = width*1/40;
+  blackH = height*1/30;
   quitButtonX = width*18.3/19;
   quitButtonY = height*0.1/300;
-  quitButtonW = width*1/27;
-  quitButtonH = height*1/27;
+  quitButtonWidth = width*1/27;
+  quitButtonHeight = height*1/27;
+  backgroundX = width*0.1/300;
+  backgroundY = height*0.1/300;
+  backgroundW = width*1;
+  backgroundH = height*1;
+  resetX = width*1/12;
+  resetY = height*7.5/8;
+  resetW = width*1/30;
+  resetH = height*1/30;
 }
