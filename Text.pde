@@ -1,5 +1,6 @@
 String buttonText = "X";
 String buttonText2 = "Reset";
+String buttonText3 = "Eraser";
 PFont font;
 
 void textSetup() { 
@@ -18,5 +19,12 @@ void textDraw2() {
   fill(black);
   textAlign (CENTER, CENTER);
   text(buttonText2, resetX, resetY, resetW, resetH);
+  fill(255);
+}
+
+void textDraw3() {
+  fill(white);
+  textAlign (CENTER, CENTER);
+  text(buttonText3, EraserX, EraserY, EraserW, EraserH);
   fill(255);
 }
