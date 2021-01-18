@@ -1,16 +1,19 @@
-// Global Variables
+// Global Variable
+float oldX;
+float oldY;
 color ink, black=#000000, white=#FFFFFF, red=#FF0000, orange=#FF7C00, yellow=#FFD900, green=#14FF00, blue=#0000FF, pink=#FF00F3, purple=#7600FF, quitButtonColour, eraserpink=#EFD0F0, penyellow=#F0E67E, penbrown=#EADDCC;
 float drawingSurfaceX, drawingSurfaceY, drawingSurfaceWidth, drawingSurfaceHeight, drawingDiameter, backgroundX, backgroundY, backgroundW, backgroundH, resetX, resetY, resetW, resetH;
 float redX, redY, redW, redH, orangeX, orangeY, orangeW, orangeH, yellowX, yellowY, yellowW, yellowH, greenX, greenY, greenW, greenH, blueX, blueY, blueW, blueH, pinkX, pinkY, pinkW, pinkH, purpleX, purpleY, purpleW, purpleH, blackX, blackY, blackW, blackH;
 float quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight, thick1X, thick1Y, thick1W, thick1H, thick2X, thick2Y, thick2W, thick2H, thick3X, thick3Y, thick3W, thick3H;
 float EraserX, EraserY, EraserW, EraserH, WriteX, WriteY, WriteW, WriteH, PenRectX, PenRectY, PenRectW, PenRectH, PenTriX1, PenTriY1, PenTriX2, PenTriY2, PenTriX3, PenTriY3, blankX, blankY, blankW, blankH;
-Boolean draw=false, resetOn=false;
+Boolean draw=false, resetOn=false, redOn=false;
 
 void setup() {
   fullScreen();
   drawingSurface();
   ink = black; 
   fill(white);
+  smooth();
   rect(backgroundX, backgroundY, backgroundW, backgroundH);
   rect(drawingSurfaceX, drawingSurfaceY, drawingSurfaceWidth, drawingSurfaceHeight);
   //
@@ -30,15 +33,6 @@ void setup() {
   rect(purpleX, purpleY, purpleW, purpleH);
   fill(black);
   rect(blackX, blackY, blackW, blackH);
-  //
-  if ( mouseX>quitButtonX && mouseX<quitButtonX+quitButtonWidth && mouseY>quitButtonY && mouseY<quitButtonY+quitButtonHeight ) { 
-    quitButtonColour = red;
-  } else { 
-    quitButtonColour = white;
-  } 
-  fill(quitButtonColour);
-  rect(quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight);
-  textDraw();
   //
   fill(white);
   rect(resetX, resetY, resetW, resetH);
@@ -69,6 +63,14 @@ void draw() {
     fill(ink);
     line(mouseX, mouseY, pmouseX, pmouseY);
   }
+  if ( mouseX>quitButtonX && mouseX<quitButtonX+quitButtonWidth && mouseY>quitButtonY && mouseY<quitButtonY+quitButtonHeight ) { 
+    quitButtonColour = red;
+  } else { 
+    quitButtonColour = white;
+  } 
+  fill(quitButtonColour);
+  rect(quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight);
+  textDraw();
 }
 
 void mousePressed() {
