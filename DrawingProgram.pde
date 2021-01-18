@@ -3,13 +3,13 @@ color ink, black=#000000, white=#FFFFFF, red=#FF0000, orange=#FF7C00, yellow=#FF
 float drawingSurfaceX, drawingSurfaceY, drawingSurfaceWidth, drawingSurfaceHeight, drawingDiameter, backgroundX, backgroundY, backgroundW, backgroundH, resetX, resetY, resetW, resetH;
 float redX, redY, redW, redH, orangeX, orangeY, orangeW, orangeH, yellowX, yellowY, yellowW, yellowH, greenX, greenY, greenW, greenH, blueX, blueY, blueW, blueH, pinkX, pinkY, pinkW, pinkH, purpleX, purpleY, purpleW, purpleH, blackX, blackY, blackW, blackH;
 float quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight, thick1X, thick1Y, thick1W, thick1H, thick2X, thick2Y, thick2W, thick2H, thick3X, thick3Y, thick3W, thick3H;
-float EraserX, EraserY, EraserW, EraserH, WriteX, WriteY, WriteW, WriteH, PenRectX, PenRectY, PenRectW, PenRectH, PenTriX1, PenTriY1, PenTriX2, PenTriY2, PenTriX3, PenTriY3;
-Boolean draw=false;
+float EraserX, EraserY, EraserW, EraserH, WriteX, WriteY, WriteW, WriteH, PenRectX, PenRectY, PenRectW, PenRectH, PenTriX1, PenTriY1, PenTriX2, PenTriY2, PenTriX3, PenTriY3, blankX, blankY, blankW, blankH;
+Boolean draw=false, resetOn=false;
 
 void setup() {
   fullScreen();
   drawingSurface();
-  ink = black; // example to change ink
+  ink = black; 
   fill(white);
   rect(backgroundX, backgroundY, backgroundW, backgroundH);
   rect(drawingSurfaceX, drawingSurfaceY, drawingSurfaceWidth, drawingSurfaceHeight);
@@ -32,9 +32,9 @@ void setup() {
   rect(blackX, blackY, blackW, blackH);
   //
   if ( mouseX>quitButtonX && mouseX<quitButtonX+quitButtonWidth && mouseY>quitButtonY && mouseY<quitButtonY+quitButtonHeight ) { 
-    quitButtonColour = white;
-  } else { 
     quitButtonColour = red;
+  } else { 
+    quitButtonColour = white;
   } 
   fill(quitButtonColour);
   rect(quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight);
@@ -59,7 +59,9 @@ void setup() {
   rect(PenRectX, PenRectY, PenRectW, PenRectH);
   fill(penbrown);
   triangle(PenTriX1, PenTriY1, PenTriX2, PenTriY2, PenTriX3, PenTriY3);
-  //The remaining buttons are the ones for the music like play, pause e.t.c. Do these after you've finished the music program. For now you can configure the buttons you do have,
+  //The remaining buttons are the ones for the music like play, pause e.t.c. Do these after you've finished the music program. For now you can configure the buttons you do have.
+  fill(white);
+  if (resetOn = true) rect(blankX, blankY, blankW, blankH);
 }
 
 void draw() {
@@ -71,6 +73,7 @@ void draw() {
 
 void mousePressed() {
   if ( mouseX>quitButtonX && mouseX<quitButtonX+quitButtonWidth && mouseY>quitButtonY && mouseY<quitButtonY+quitButtonHeight ) exit();
+  //
   if ( mouseX>drawingSurfaceX  && mouseX<drawingSurfaceX+drawingSurfaceWidth  && mouseY>drawingSurfaceY && mouseY<drawingSurfaceY+drawingSurfaceHeight ) {
     println("drawing surface");
     if (draw == false) {
@@ -78,5 +81,15 @@ void mousePressed() {
     } else {
       draw = false;
     }
+  }
+  if ( mouseX>resetX && mouseX<resetX+resetW && mouseY>resetY && mouseY<resetY+resetH ) {
+    if (resetOn == true) {
+      resetOn = false;
+    } else { 
+      resetOn = true;
+    }
+  }
+  if (mouseX>redX && mouseX<redX+redW && mouseY>redY && mouseY<redY+redH) {
+    stroke(red);
   }
 }

@@ -78,4 +78,8 @@ void drawingSurface() {
   PenTriY2 = height*1.47/12;
   PenTriX3 = width*6.07/12;
   PenTriY3 = PenTriY2;
+  blankX = width*1/12;
+  blankY = height*2/12;
+  blankW = width*6/8;
+  blankH = height*6/8;
 }
