@@ -5,6 +5,7 @@ import ddf.minim.signals.*;
 import ddf.minim.spi.*;
 import ddf.minim.ugens.*;
 // Global Variables
+// FIGURE OUT HOW TO GET THE STROKE SIZE TO NOT APPLY TO EVERYTHING ON THE SCREEN
 Minim minim;
 int numberOfSongs = 4;
 AudioPlayer[] song = new AudioPlayer[numberOfSongs];
@@ -37,7 +38,7 @@ void setup() {
   fullScreen();
   population();
   minim = new Minim(this);
-
+  //
   song[currentSong] = minim.loadFile("Music/05. Mii Parade.mp3");
   song[currentSong+=1] = minim.loadFile("Music/06. Shop Channel Title.mp3");
   song[currentSong+=1] = minim.loadFile("Music/07. Shop Channel.mp3");
@@ -49,6 +50,7 @@ void setup() {
   //
   font = createFont ("Arial", 55);
   song[currentSong].play();
+  song[currentSong].loop(loopIntNum);
   //
   ink = black; 
   fill(white);
@@ -124,18 +126,11 @@ void setup() {
   //The remaining buttons are the ones for the music like play, pause e.t.c. Do these after you've finished the music program. For now you can configure the buttons you do have.
   fill(white);
   if (resetOn = true) rect(blankX, blankY, blankW, blankH);
-}
-//
-void draw() {
-  if (draw == true &&  mouseX>drawingSurfaceX  && mouseX<drawingSurfaceX+drawingSurfaceWidth  && mouseY>drawingSurfaceY && mouseY<drawingSurfaceY+drawingSurfaceHeight ) {
-    fill(ink);
-    line(mouseX, mouseY, pmouseX, pmouseY);
-  }
   //
   if ( mouseX>quitButtonX && mouseX<quitButtonX+quitButtonWidth && mouseY>quitButtonY && mouseY<quitButtonY+quitButtonHeight ) { 
     quitButtonColour = red;
   } else { 
-    quitButtonColour = white;
+    quitButtonColour = red;
   } 
   fill(quitButtonColour);
   rect(quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight);
@@ -213,6 +208,14 @@ void draw() {
   triangle(backA1X, backA1Y, backA2X, backA2Y, backA3X, backA3Y);
   fill(buttonC);
   rect(backBX, backBY, backBW, backBH);
+  //
+}
+//
+void draw() {
+  if (draw == true &&  mouseX>drawingSurfaceX  && mouseX<drawingSurfaceX+drawingSurfaceWidth  && mouseY>drawingSurfaceY && mouseY<drawingSurfaceY+drawingSurfaceHeight ) {
+    fill(ink);
+    line(mouseX, mouseY, pmouseX, pmouseY);
+  }
   //
 }
 //
