@@ -135,14 +135,6 @@ void setup() {
   rect(quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight);
   textDraw();
   //
-  if (mousePressed) {
-    if (mouseX>resetX && mouseX<resetX+resetW) {
-      if (mouseX>resetY && mouseX<resetY+resetH) {
-        fill(white);
-        rect(drawingSurfaceX, drawingSurfaceY, drawingSurfaceWidth, drawingSurfaceHeight);
-      }
-    }
-  }
   //
   if (mouseX>playrecX && mouseX<playrecX+playrecW && mouseY>playrecY && mouseY<playrecY+playrecH) {
     buttonC = green;
@@ -287,7 +279,7 @@ void mousePressed() {
   //
   if (mouseX>redX && mouseX<redX+redW && mouseY>redY && mouseY<redY+redH) {
     stroke(red);
-     masterStroke= 1;
+    masterStroke= 1;
   }
   //
   if (mouseX>orangeX && mouseX<orangeX+orangeW && mouseY>redY && mouseY<redY+redH) {
@@ -345,6 +337,7 @@ void mousePressed() {
     masterStroke= 1;
   }
   //
+
   if (mouseX>EraserX && mouseX<EraserX+EraserW && mouseY>EraserY && mouseY<EraserY+EraserH) {
     stroke(white);
     masterStroke= 50;
@@ -373,23 +366,22 @@ void mousePressed() {
     }
     strokeWeight(masterStroke);
     //
-    
   }
 }
 //
 
 //
 void mouseDragged() {
- if (mouseX>drawingSurfaceX  && mouseX<drawingSurfaceX+drawingSurfaceWidth  && mouseY>drawingSurfaceY && mouseY<drawingSurfaceY+drawingSurfaceHeight) {
- noFill();
- strokeWeight(masterStroke);
- strokeJoin(ROUND);
- line(mouseX, mouseY, pmouseX, pmouseY);
- }
- if (mouseX>drawingSurfaceX  && mouseX<drawingSurfaceX+drawingSurfaceWidth  && mouseY>drawingSurfaceY && mouseY<drawingSurfaceY+drawingSurfaceHeight) {
- noFill();
- strokeWeight(masterStroke);
- strokeJoin(ROUND);
- line(mouseX, mouseY, pmouseX, pmouseY);
- }
- }
+  if (mouseX>drawingSurfaceX  && mouseX<drawingSurfaceX+drawingSurfaceWidth  && mouseY>drawingSurfaceY && mouseY<drawingSurfaceY+drawingSurfaceHeight) {
+    noFill();
+    strokeWeight(masterStroke);
+    strokeJoin(ROUND);
+    line(mouseX, mouseY, pmouseX, pmouseY);
+  }
+  if (mouseX>drawingSurfaceX  && mouseX<drawingSurfaceX+drawingSurfaceWidth  && mouseY>drawingSurfaceY && mouseY<drawingSurfaceY+drawingSurfaceHeight) {
+    noFill();
+    strokeWeight(masterStroke);
+    strokeJoin(ROUND);
+    line(mouseX, mouseY, pmouseX, pmouseY);
+  }
+}
