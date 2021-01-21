@@ -5,7 +5,6 @@ import ddf.minim.signals.*;
 import ddf.minim.spi.*;
 import ddf.minim.ugens.*;
 // Global Variables
-// FIGURE OUT HOW TO GET THE STROKE SIZE TO NOT APPLY TO EVERYTHING ON THE SCREEN
 Minim minim;
 int numberOfSongs = 4;
 AudioPlayer[] song = new AudioPlayer[numberOfSongs];
@@ -18,7 +17,7 @@ float oldY;
 float masterStroke= 1;
 color f1 = color(0);
 color f2 = color(255);
-color ink, red=#FF0000, green=#00FF00, blue=#0000FF, yellow=#F7FA00, orange=#FF790A, purple=#6E00DC, white=#FFFFFF, teal=#29FFFD, lime=#A2F01D, pink=#FF79A4, buttonC;
+color ink, red=#FF0000, green=#00FF00, blue=#0000FF, yellow=#F7FA00, orange=#FF790A, purple=#6E00DC, white=#FFFFFF, teal=#29FFFD, lime=#A2F01D, pink=#FF79A4, buttonC, drawC;
 color black=#000000, grey=#BFBFBF, quitButtonColour, eraserpink=#EFD0F0, penyellow=#F0E67E, penbrown=#EADDCC;
 float drawingSurfaceX, drawingSurfaceY, drawingSurfaceWidth, drawingSurfaceHeight, drawingDiameter, backgroundX, backgroundY, backgroundW, backgroundH, resetX, resetY, resetW, resetH;
 float redX, redY, redW, redH, orangeX, orangeY, orangeW, orangeH, yellowX, yellowY, yellowW, yellowH, greenX, greenY, greenW, greenH, blueX, blueY, blueW, blueH, pinkX, whiteX, whiteY, whiteW, whiteH;
@@ -219,23 +218,6 @@ void draw() {
   //
 }
 //
-/*void mouseDragged() {
- if (mouseButton == LEFT) {
- noFill();
- stroke(f1);
- strokeWeight(1);
- strokeJoin(ROUND);
- line(mouseX, mouseY, pmouseX, pmouseY);
- }
- if (mouseButton == RIGHT) {
- noFill();
- stroke(f2);
- strokeWeight(1);
- strokeJoin(ROUND);
- line(mouseX, mouseY, pmouseX, pmouseY);
- }
- }*/
-//
 void mousePressed() {
   if ( mouseX>quitButtonX && mouseX<quitButtonX+quitButtonWidth && mouseY>quitButtonY && mouseY<quitButtonY+quitButtonHeight ) exit();
   //
@@ -303,16 +285,9 @@ void mousePressed() {
     }
   }
   //
-  if ( mouseX>drawingSurfaceX  && mouseX<drawingSurfaceX+drawingSurfaceWidth  && mouseY>drawingSurfaceY && mouseY<drawingSurfaceY+drawingSurfaceHeight ) {
-    if (draw == false) {
-      draw = true;
-    } else {
-      draw = false;
-    }
-  }
-  //
   if (mouseX>redX && mouseX<redX+redW && mouseY>redY && mouseY<redY+redH) {
     stroke(red);
+     masterStroke= 1;
   }
   //
   if (mouseX>orangeX && mouseX<orangeX+orangeW && mouseY>redY && mouseY<redY+redH) {
@@ -397,6 +372,24 @@ void mousePressed() {
       }
     }
     strokeWeight(masterStroke);
+    //
+    
   }
 }
 //
+
+//
+void mouseDragged() {
+ if (mouseX>drawingSurfaceX  && mouseX<drawingSurfaceX+drawingSurfaceWidth  && mouseY>drawingSurfaceY && mouseY<drawingSurfaceY+drawingSurfaceHeight) {
+ noFill();
+ strokeWeight(masterStroke);
+ strokeJoin(ROUND);
+ line(mouseX, mouseY, pmouseX, pmouseY);
+ }
+ if (mouseX>drawingSurfaceX  && mouseX<drawingSurfaceX+drawingSurfaceWidth  && mouseY>drawingSurfaceY && mouseY<drawingSurfaceY+drawingSurfaceHeight) {
+ noFill();
+ strokeWeight(masterStroke);
+ strokeJoin(ROUND);
+ line(mouseX, mouseY, pmouseX, pmouseY);
+ }
+ }
