@@ -24,7 +24,7 @@ float redX, redY, redW, redH, orangeX, orangeY, orangeW, orangeH, yellowX, yello
 float pinkY, pinkW, pinkH, purpleX, purpleY, purpleW, purpleH, blackX, blackY, blackW, blackH, tealX, tealY, tealW, tealH, limeX, limeY, limeW, limeH, greyX, greyY, greyW, greyH;
 float quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight, thick1X, thick1Y, thick1W, thick1H, thick2X, thick2Y, thick2W, thick2H, thick3X, thick3Y, thick3W, thick3H;
 float EraserX, EraserY, EraserW, EraserH, WriteX, WriteY, WriteW, WriteH, PenRectX, PenRectY, PenRectW, PenRectH, PenTriX1, PenTriY1, PenTriX2, PenTriY2, PenTriX3, PenTriY3, blankX, blankY, blankW, blankH;
-float play1X, play1Y, play2X, play2Y, play3X, play3Y, playCX, playCY, playCD;
+float play1X, play1Y, play2X, play2Y, play3X, play3Y, playCX, playCY, playCD, circX, circY, circD, triX1, triY1, triX2, triY2, triX3, triY3;
 float fastA1X, fastA1Y, fastA2X, fastA2Y, fastA3X, fastA3Y, fastB1X, fastB1Y, fastB2X, fastB2Y, fastB3X, fastB3Y;
 float rewA1X, rewA1Y, rewA2X, rewA2Y, rewA3X, rewA3Y, rewB1X, rewB1Y, rewB2X, rewB2Y, rewB3X, rewB3Y, stopX, stopY, stopW, stopH;
 float nextA1X, nextA1Y, nextA2X, nextA2Y, nextA3X, nextA3Y, nextBX, nextBY, nextBW, nextBH, loopX, loopY, loopD;
@@ -32,7 +32,7 @@ float backA1X, backA1Y, backA2X, backA2Y, backA3X, backA3Y, backBX, backBY, back
 float backrecX, backrecY, backrecW, backrecH, nextrecX, nextrecY, nextrecW, nextrecH, looprecX, looprecY, looprecW, looprecH, fastrecX, fastrecY, fastrecW, fastrecH, rewrecX, rewrecY, rewrecW, rewrecH, playrecX, playrecY, playrecW, playrecH;
 Boolean nextOn=false, backOn=false, playOn=false, fastOn=false, rewOn=false, stopOn=false, loopOn=false;
 Boolean draw=false, resetOn=false, redOn=false;
-
+// DO LINE ART
 void setup() {
   fullScreen();
   population();

@@ -224,4 +224,7 @@ void population() {
   backrecW = width*0.33/15;
   backrecH = height*0.5/15;
   //
+  circX = width*11.5/15;
+  circY = height*0.5/15;
+  circD = height*0.8/15;
 }
