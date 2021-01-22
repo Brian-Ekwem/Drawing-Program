@@ -212,7 +212,9 @@ void mousePressed() {
   if ( mouseX>quitButtonX && mouseX<quitButtonX+quitButtonWidth && mouseY>quitButtonY && mouseY<quitButtonY+quitButtonHeight ) exit();
   //
   if (mouseX>resetX && mouseX<resetX+resetW && mouseY>resetY & mouseY<resetY+resetH) {
- if (resetOn = true) rect(blankX, blankY, blankW, blankH); }
+    if (resetOn = true);
+      rect(blankX, blankY, blankW, blankH);
+  }
   //
   if (mouseX>playrecX && mouseX<playrecX+playrecW && mouseY>playrecY && mouseY<playrecY+playrecH) {
     if ( song[currentSong].isPlaying() ) {
