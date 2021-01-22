@@ -123,8 +123,6 @@ void setup() {
   fill(penbrown);
   triangle(PenTriX1, PenTriY1, PenTriX2, PenTriY2, PenTriX3, PenTriY3);
   //The remaining buttons are the ones for the music like play, pause e.t.c. Do these after you've finished the music program. For now you can configure the buttons you do have.
-  fill(white);
-  if (resetOn = true) rect(blankX, blankY, blankW, blankH);
   //
   if ( mouseX>quitButtonX && mouseX<quitButtonX+quitButtonWidth && mouseY>quitButtonY && mouseY<quitButtonY+quitButtonHeight ) { 
     quitButtonColour = red;
@@ -212,6 +210,9 @@ void draw() {
 //
 void mousePressed() {
   if ( mouseX>quitButtonX && mouseX<quitButtonX+quitButtonWidth && mouseY>quitButtonY && mouseY<quitButtonY+quitButtonHeight ) exit();
+  //
+  if (mouseX>resetX && mouseX<resetX+resetW && mouseY>resetY & mouseY<resetY+resetH) {
+ if (resetOn = true) rect(blankX, blankY, blankW, blankH); }
   //
   if (mouseX>playrecX && mouseX<playrecX+playrecW && mouseY>playrecY && mouseY<playrecY+playrecH) {
     if ( song[currentSong].isPlaying() ) {
