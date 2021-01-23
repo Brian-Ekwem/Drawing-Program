@@ -224,7 +224,30 @@ void population() {
   backrecW = width*0.33/15;
   backrecH = height*0.5/15;
   //
-  circX = width*11.5/15;
-  circY = height*0.5/15;
-  circD = height*0.8/15;
+  circBX = width*11.5/15;
+  circBY = height*1/15;
+  circBD = height*0.8/15;
+  //
+  crecX = width*11.25/15;
+  crecY = height*0.6/15;
+  crecW = width*0.5/15;
+  crecH = height*0.8/15;
+  //
+  triBX1 = width*12.2/15;
+  triBY1 = height*0.6/15;
+  triBX2 = width*12.4/15;
+  triBY2 = height*1.4/15;
+  triBX3 = width*12/15;
+  triBY3 = triBY2;
+  //
+  trecX = triBX3;
+  trecY = triBY1;
+  trecW = width*0.4/15;
+  trecH = height*0.8/15;
+  //
+  laX = width*11.5/15;
+  laY = height*1.7/15;
+  laW = width*0.5/15;
+  laH = height*0.5/15;
+  //
 }

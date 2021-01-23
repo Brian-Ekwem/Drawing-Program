@@ -17,15 +17,15 @@ float oldY;
 float masterStroke= 1;
 color f1 = color(0);
 color f2 = color(255);
-color ink, red=#FF0000, green=#00FF00, blue=#0000FF, yellow=#F7FA00, orange=#FF790A, purple=#6E00DC, white=#FFFFFF, teal=#29FFFD, lime=#A2F01D, pink=#FF79A4, buttonC, drawC;
+color ink, red=#FF0000, green=#00FF00, blue=#0000FF, yellow=#FAE41E, orange=#FF790A, purple=#6E00DC, white=#FFFFFF, teal=#29FFFD, lime=#A2F01D, pink=#FF79A4, darkgrey=#393939, buttonC, drawC;
 color black=#000000, grey=#BFBFBF, quitButtonColour, eraserpink=#EFD0F0, penyellow=#F0E67E, penbrown=#EADDCC;
 float drawingSurfaceX, drawingSurfaceY, drawingSurfaceWidth, drawingSurfaceHeight, drawingDiameter, backgroundX, backgroundY, backgroundW, backgroundH, resetX, resetY, resetW, resetH;
 float redX, redY, redW, redH, orangeX, orangeY, orangeW, orangeH, yellowX, yellowY, yellowW, yellowH, greenX, greenY, greenW, greenH, blueX, blueY, blueW, blueH, pinkX, whiteX, whiteY, whiteW, whiteH;
 float pinkY, pinkW, pinkH, purpleX, purpleY, purpleW, purpleH, blackX, blackY, blackW, blackH, tealX, tealY, tealW, tealH, limeX, limeY, limeW, limeH, greyX, greyY, greyW, greyH;
 float quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight, thick1X, thick1Y, thick1W, thick1H, thick2X, thick2Y, thick2W, thick2H, thick3X, thick3Y, thick3W, thick3H;
 float EraserX, EraserY, EraserW, EraserH, WriteX, WriteY, WriteW, WriteH, PenRectX, PenRectY, PenRectW, PenRectH, PenTriX1, PenTriY1, PenTriX2, PenTriY2, PenTriX3, PenTriY3, blankX, blankY, blankW, blankH;
-float play1X, play1Y, play2X, play2Y, play3X, play3Y, playCX, playCY, playCD, circX, circY, circD, triX1, triY1, triX2, triY2, triX3, triY3;
-float fastA1X, fastA1Y, fastA2X, fastA2Y, fastA3X, fastA3Y, fastB1X, fastB1Y, fastB2X, fastB2Y, fastB3X, fastB3Y;
+float play1X, play1Y, play2X, play2Y, play3X, play3Y, playCX, playCY, playCD, circX, circY, circD, triX1, triY1, triX2, triY2, triX3, triY3, circBX, circBY, circBD, triBX1, triBY1, triBX2, triBY2, triBX3, triBY3;
+float fastA1X, fastA1Y, fastA2X, fastA2Y, fastA3X, fastA3Y, fastB1X, fastB1Y, fastB2X, fastB2Y, fastB3X, fastB3Y, crecX, crecY, crecW, crecH, trecX, trecY, trecW, trecH, laX, laY, laW, laH;
 float rewA1X, rewA1Y, rewA2X, rewA2Y, rewA3X, rewA3Y, rewB1X, rewB1Y, rewB2X, rewB2Y, rewB3X, rewB3Y, stopX, stopY, stopW, stopH;
 float nextA1X, nextA1Y, nextA2X, nextA2Y, nextA3X, nextA3Y, nextBX, nextBY, nextBW, nextBH, loopX, loopY, loopD;
 float backA1X, backA1Y, backA2X, backA2Y, backA3X, backA3Y, backBX, backBY, backBW, backBH, muteX, muteY, muteW, muteH;
@@ -122,7 +122,24 @@ void setup() {
   rect(PenRectX, PenRectY, PenRectW, PenRectH);
   fill(penbrown);
   triangle(PenTriX1, PenTriY1, PenTriX2, PenTriY2, PenTriX3, PenTriY3);
-  //The remaining buttons are the ones for the music like play, pause e.t.c. Do these after you've finished the music program. For now you can configure the buttons you do have.
+  //
+  stroke(white);
+  fill(white);
+  rect(crecX, crecY, crecW, crecH);
+  //
+  fill(white);
+  rect(trecX, trecY, trecW, trecH);
+  //
+  stroke(black);
+  fill(yellow);
+  ellipse(circBX, circBY, circBD, circBD);
+  //
+  fill(orange);
+  triangle(triBX1, triBY1, triBX2, triBY2, triBX3, triBY3);
+  //
+  fill(darkgrey);
+  rect(laX, laY, laW, laH);
+  textDraw4();
   //
   if ( mouseX>quitButtonX && mouseX<quitButtonX+quitButtonWidth && mouseY>quitButtonY && mouseY<quitButtonY+quitButtonHeight ) { 
     quitButtonColour = red;
@@ -213,7 +230,9 @@ void mousePressed() {
   //
   if (mouseX>resetX && mouseX<resetX+resetW && mouseY>resetY & mouseY<resetY+resetH) {
     if (resetOn = true);
-      rect(blankX, blankY, blankW, blankH);
+    rect(blankX, blankY, blankW, blankH);
+    stroke(black);
+    fill(white);
   }
   //
   if (mouseX>playrecX && mouseX<playrecX+playrecW && mouseY>playrecY && mouseY<playrecY+playrecH) {
