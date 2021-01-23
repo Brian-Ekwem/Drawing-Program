@@ -10,7 +10,7 @@ int numberOfSongs = 4;
 AudioPlayer[] song = new AudioPlayer[numberOfSongs];
 AudioMetaData[] songMetaData = new AudioMetaData[numberOfSongs];
 int loopIntNum = 1;
-PImage pic1;
+PImage pic1, pic2, pic3;
 int currentSong = numberOfSongs - numberOfSongs;
 float oldX;
 float oldY;
@@ -25,17 +25,23 @@ float pinkY, pinkW, pinkH, purpleX, purpleY, purpleW, purpleH, blackX, blackY, b
 float quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight, thick1X, thick1Y, thick1W, thick1H, thick2X, thick2Y, thick2W, thick2H, thick3X, thick3Y, thick3W, thick3H;
 float EraserX, EraserY, EraserW, EraserH, WriteX, WriteY, WriteW, WriteH, PenRectX, PenRectY, PenRectW, PenRectH, PenTriX1, PenTriY1, PenTriX2, PenTriY2, PenTriX3, PenTriY3, blankX, blankY, blankW, blankH;
 float play1X, play1Y, play2X, play2Y, play3X, play3Y, playCX, playCY, playCD, circX, circY, circD, triX1, triY1, triX2, triY2, triX3, triY3, circBX, circBY, circBD, triBX1, triBY1, triBX2, triBY2, triBX3, triBY3;
-float fastA1X, fastA1Y, fastA2X, fastA2Y, fastA3X, fastA3Y, fastB1X, fastB1Y, fastB2X, fastB2Y, fastB3X, fastB3Y, crecX, crecY, crecW, crecH, trecX, trecY, trecW, trecH, laX, laY, laW, laH;
-float rewA1X, rewA1Y, rewA2X, rewA2Y, rewA3X, rewA3Y, rewB1X, rewB1Y, rewB2X, rewB2Y, rewB3X, rewB3Y, stopX, stopY, stopW, stopH;
+float fastA1X, fastA1Y, fastA2X, fastA2Y, fastA3X, fastA3Y, fastB1X, fastB1Y, fastB2X, fastB2Y, fastB3X, fastB3Y, crecX, crecY, crecW, crecH, trecX, trecY, trecW, trecH;
+float rewA1X, rewA1Y, rewA2X, rewA2Y, rewA3X, rewA3Y, rewB1X, rewB1Y, rewB2X, rewB2Y, rewB3X, rewB3Y, stopX, stopY, stopW, stopH, laX, laY, laW, laH, la2X, la2Y, la2W, la2H, la3X, la3Y, la3W, la3H;
 float nextA1X, nextA1Y, nextA2X, nextA2Y, nextA3X, nextA3Y, nextBX, nextBY, nextBW, nextBH, loopX, loopY, loopD;
+float rectXPic1, rectYPic1, rectWidthPic1, rectHeightPic1, rectXPic2, rectYPic2, rectWidthPic2, rectHeightPic2, rectXPic3, rectYPic3, rectWidthPic3, rectHeightPic3;
+float picX1, picY1, picWidth1, picHeight1, picX2, picY2, picWidth2, picHeight2, picX3, picY3, picWidth3, picHeight3;
+float picImageWidthRatio1, picImageHeightRatio1, picImageWidthRatio2, picImageHeightRatio2, picImageWidthRatio3, picImageHeightRatio3;
 float backA1X, backA1Y, backA2X, backA2Y, backA3X, backA3Y, backBX, backBY, backBW, backBH, muteX, muteY, muteW, muteH;
 float backrecX, backrecY, backrecW, backrecH, nextrecX, nextrecY, nextrecW, nextrecH, looprecX, looprecY, looprecW, looprecH, fastrecX, fastrecY, fastrecW, fastrecH, rewrecX, rewrecY, rewrecW, rewrecH, playrecX, playrecY, playrecW, playrecH;
 Boolean nextOn=false, backOn=false, playOn=false, fastOn=false, rewOn=false, stopOn=false, loopOn=false;
-Boolean draw=false, resetOn=false, redOn=false;
+Boolean draw=false, resetOn=false, redOn=false, On1=false, On2=false, On3=false;
 // DO LINE ART
 void setup() {
   fullScreen();
   population();
+  pic1 = loadImage("download (1).png");
+  pic2 = loadImage("download (2).png");
+  pic3 = loadImage("download.png");
   minim = new Minim(this);
   //
   song[currentSong] = minim.loadFile("Music/05. Mii Parade.mp3");
@@ -141,6 +147,14 @@ void setup() {
   rect(laX, laY, laW, laH);
   textDraw4();
   //
+  fill(darkgrey);
+  rect(la2X, la2Y, la2W, la2H);
+  textDraw5();
+  //
+  fill(darkgrey);
+  rect(la3X, la3Y, la3W, la3H);
+  textDraw6();
+  //
   if ( mouseX>quitButtonX && mouseX<quitButtonX+quitButtonWidth && mouseY>quitButtonY && mouseY<quitButtonY+quitButtonHeight ) { 
     quitButtonColour = red;
   } else { 
@@ -226,9 +240,48 @@ void draw() {
 }
 //
 void mousePressed() {
+  if (mouseX>laX && mouseX<laX+laW && mouseY>laY && mouseY<laY+laH) 
+    if (On1 == true) {
+      rect(rectXPic1, rectYPic1, rectWidthPic1, rectHeightPic1);
+      //image(pic1, picX1, picY1, picWidth1, picHeight1);
+      On1 = false;
+      On2 = true;
+      On3 = true;
+    } else {
+      On1 = true;
+      On2 = false;
+      On3 = false;
+    }
+  //
+  if (mouseX>la2X && mouseX<la2X+la2W && mouseY>la2Y && mouseY<la2Y+la2H) 
+    if (On2 == true) {
+      rect(rectXPic2, rectYPic2, rectWidthPic2, rectHeightPic2);
+      //image(pic2, picX2, picY2, picWidth2, picHeight2);
+      On1 = true;
+      On2 = false;
+      On3 = true;
+    } else {
+      On1 = false;
+      On2 = true;
+      On3 = false;
+    }
+  //
+  if (mouseX>la3X && mouseX<la3X+la3W && mouseY>la3Y && mouseY<la3Y+la3H) 
+    if (On3 == true) {
+      rect(rectXPic1, rectYPic1, rectWidthPic1, rectHeightPic1);
+      //image(pic3, picX3, picY3, picWidth2, picHeight2);
+      On1 = true;
+      On2 = true;
+      On3 = false;
+    } else {
+      On1 = false;
+      On2 = false;
+      On3 = true;
+    }
+  //
   if ( mouseX>quitButtonX && mouseX<quitButtonX+quitButtonWidth && mouseY>quitButtonY && mouseY<quitButtonY+quitButtonHeight ) exit();
   //
-  if (mouseX>resetX && mouseX<resetX+resetW && mouseY>resetY & mouseY<resetY+resetH) {
+  if (mouseX>resetX && mouseX<resetX+resetW && mouseY>resetY && mouseY<resetY+resetH) {
     if (resetOn = true);
     rect(blankX, blankY, blankW, blankH);
     stroke(black);

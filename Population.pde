@@ -169,8 +169,10 @@ void population() {
   nextA1X = fastA1X;
   nextA1Y = height*1.2/15;
   nextA2X = nextA1X;
-  nextA2Y = height*1.7/15;;
-  nextA3X = fastA3X;;
+  nextA2Y = height*1.7/15;
+  ;
+  nextA3X = fastA3X;
+  ;
   nextA3Y = height*1.45/15;
   //
   nextBX = nextA3X;
@@ -245,9 +247,51 @@ void population() {
   trecW = width*0.4/15;
   trecH = height*0.8/15;
   //
-  laX = width*11.5/15;
+  laX = width*11/15;
   laY = height*1.7/15;
   laW = width*0.5/15;
   laH = height*0.5/15;
   //
+  la2X = width*11.55/15;
+  la2Y = height*1.7/15;
+  la2W = width*0.5/15;
+  la2H = height*0.5/15;
+  //
+  la3X = width*12.12/15;
+  la3Y = height*1.7/15;
+  la3W = width*0.5/15;
+  la3H = height*0.5/15;
+  //
+  rectXPic1 = width*3.3/12;
+  rectYPic1 = height*2.7/12;
+  rectWidthPic1 = width*3/8; 
+  rectHeightPic1 = height*5/8;
+  picImageWidthRatio1 = 217.0/217.0; 
+  picImageHeightRatio1 = 232.0/217.0;
+  picX1 = rectXPic1;
+  picY1 = rectYPic1;
+  picWidth1 = rectWidthPic1 * picImageWidthRatio1; 
+  picHeight1 = picWidth1 * picImageHeightRatio1; 
+  //
+  rectXPic2 = width*3.3/12;
+  rectYPic2 = height*2.7/12;
+  rectWidthPic2 = width*3/8; 
+  rectHeightPic2 = height*5/8;
+  picImageWidthRatio2 = 197.0/197.0; 
+  picImageHeightRatio2 = 255.0/197.0;
+  picX2 = rectXPic2;
+  picY2 = rectYPic2;
+  picWidth2 = rectWidthPic2 * picImageWidthRatio2; 
+  picHeight2 = picWidth2 * picImageHeightRatio2;
+  //
+  rectXPic3 = width*3.3/12;
+  rectYPic3 = height*2.7/12;
+  rectWidthPic3 = width*3/8; 
+  rectHeightPic3 = height*5/8;
+  picImageWidthRatio3 = 255.0/255.0; 
+  picImageHeightRatio3 = 197.0/255.0;
+  picX3 = rectXPic3;
+  picY3 = rectYPic3;
+  picWidth3 = rectWidthPic3 * picImageWidthRatio3; 
+  picHeight3 = picWidth3 * picImageHeightRatio3;
 }
