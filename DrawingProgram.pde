@@ -244,7 +244,7 @@ void draw() {
 void mousePressed() {
   if (mouseX>laX && mouseX<laX+laW && mouseY>laY && mouseY<laY+laH) 
     if (On1 == true) {
-      noStroke();
+      //noStroke();
       rect(rectXPic1, rectYPic1, rectWidthPic1, rectHeightPic1);
       //image(pic1, picX1, picY1, picWidth1, picHeight1);
       On1 = false;
@@ -258,7 +258,7 @@ void mousePressed() {
   //
   if (mouseX>la2X && mouseX<la2X+la2W && mouseY>la2Y && mouseY<la2Y+la2H) 
     if (On2 == true) {
-      noStroke();
+      //noStroke();
       rect(rectXPic2, rectYPic2, rectWidthPic2, rectHeightPic2);
       //image(pic2, picX2, picY2, picWidth2, picHeight2);
       On1 = true;
@@ -272,7 +272,7 @@ void mousePressed() {
   //
   if (mouseX>la3X && mouseX<la3X+la3W && mouseY>la3Y && mouseY<la3Y+la3H) 
     if (On3 == true) {
-      noStroke();
+      //noStroke();
       rect(rectXPic1, rectYPic1, rectWidthPic1, rectHeightPic1);
       //image(pic3, picX3, picY3, picWidth2, picHeight2);
       On1 = true;
