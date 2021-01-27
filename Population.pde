@@ -170,9 +170,7 @@ void population() {
   nextA1Y = height*1.2/15;
   nextA2X = nextA1X;
   nextA2Y = height*1.7/15;
-  ;
   nextA3X = fastA3X;
-  ;
   nextA3Y = height*1.45/15;
   //
   nextBX = nextA3X;
@@ -235,6 +233,10 @@ void population() {
   crecW = width*0.5/15;
   crecH = height*0.8/15;
   //
+  circaX = width*7/15;
+  circaY = height*6.5/12;
+  circaD = width*3/8;
+  //
   triBX1 = width*12.2/15;
   triBY1 = height*0.6/15;
   triBX2 = width*12.4/15;
@@ -246,6 +248,13 @@ void population() {
   trecY = triBY1;
   trecW = width*0.4/15;
   trecH = height*0.8/15;
+  //
+  triaX1 = width*7/15;
+  triaY1 = height*2.5/12;
+  triaX2 = width*8/12;
+  triaY2 = height*10/12;
+  triaX3 = width*3/12;
+  triaY3 = triaY2;
   //
   laX = width*11/15;
   laY = height*1.7/15;

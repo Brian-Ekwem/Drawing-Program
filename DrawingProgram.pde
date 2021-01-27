@@ -4,6 +4,7 @@ import ddf.minim.effects.*;
 import ddf.minim.signals.*;
 import ddf.minim.spi.*;
 import ddf.minim.ugens.*;
+
 // Global Variables
 Minim minim;
 int numberOfSongs = 4;
@@ -25,7 +26,7 @@ float pinkY, pinkW, pinkH, purpleX, purpleY, purpleW, purpleH, blackX, blackY, b
 float quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight, thick1X, thick1Y, thick1W, thick1H, thick2X, thick2Y, thick2W, thick2H, thick3X, thick3Y, thick3W, thick3H;
 float EraserX, EraserY, EraserW, EraserH, WriteX, WriteY, WriteW, WriteH, PenRectX, PenRectY, PenRectW, PenRectH, PenTriX1, PenTriY1, PenTriX2, PenTriY2, PenTriX3, PenTriY3, blankX, blankY, blankW, blankH;
 float play1X, play1Y, play2X, play2Y, play3X, play3Y, playCX, playCY, playCD, circX, circY, circD, triX1, triY1, triX2, triY2, triX3, triY3, circBX, circBY, circBD, triBX1, triBY1, triBX2, triBY2, triBX3, triBY3;
-float fastA1X, fastA1Y, fastA2X, fastA2Y, fastA3X, fastA3Y, fastB1X, fastB1Y, fastB2X, fastB2Y, fastB3X, fastB3Y, crecX, crecY, crecW, crecH, trecX, trecY, trecW, trecH;
+float fastA1X, fastA1Y, fastA2X, fastA2Y, fastA3X, fastA3Y, fastB1X, fastB1Y, fastB2X, fastB2Y, fastB3X, fastB3Y, crecX, crecY, crecW, crecH, trecX, trecY, trecW, trecH, circaX, circaY, circaD, triaX1, triaY1, triaX2, triaY2, triaX3, triaY3;
 float rewA1X, rewA1Y, rewA2X, rewA2Y, rewA3X, rewA3Y, rewB1X, rewB1Y, rewB2X, rewB2Y, rewB3X, rewB3Y, stopX, stopY, stopW, stopH, laX, laY, laW, laH, la2X, la2Y, la2W, la2H, la3X, la3Y, la3W, la3H;
 float nextA1X, nextA1Y, nextA2X, nextA2Y, nextA3X, nextA3Y, nextBX, nextBY, nextBW, nextBH, loopX, loopY, loopD;
 float rectXPic1, rectYPic1, rectWidthPic1, rectHeightPic1, rectXPic2, rectYPic2, rectWidthPic2, rectHeightPic2, rectXPic3, rectYPic3, rectWidthPic3, rectHeightPic3;
@@ -36,12 +37,13 @@ float backrecX, backrecY, backrecW, backrecH, nextrecX, nextrecY, nextrecW, next
 Boolean nextOn=false, backOn=false, playOn=false, fastOn=false, rewOn=false, stopOn=false, loopOn=false;
 Boolean draw=false, resetOn=false, redOn=false, On1=false, On2=false, On3=false;
 // DO LINE ART
+//
 void setup() {
   fullScreen();
   population();
-  pic1 = loadImage("download (1).png");
-  pic2 = loadImage("download (2).png");
-  pic3 = loadImage("download.png");
+  pic1 = loadImage("img00 (0).png");
+  pic2 = loadImage("img00 (1).png");
+  pic3 = loadImage("img00 (2).png");
   minim = new Minim(this);
   //
   song[currentSong] = minim.loadFile("Music/05. Mii Parade.mp3");
@@ -242,6 +244,7 @@ void draw() {
 void mousePressed() {
   if (mouseX>laX && mouseX<laX+laW && mouseY>laY && mouseY<laY+laH) 
     if (On1 == true) {
+      noStroke();
       rect(rectXPic1, rectYPic1, rectWidthPic1, rectHeightPic1);
       //image(pic1, picX1, picY1, picWidth1, picHeight1);
       On1 = false;
@@ -255,6 +258,7 @@ void mousePressed() {
   //
   if (mouseX>la2X && mouseX<la2X+la2W && mouseY>la2Y && mouseY<la2Y+la2H) 
     if (On2 == true) {
+      noStroke();
       rect(rectXPic2, rectYPic2, rectWidthPic2, rectHeightPic2);
       //image(pic2, picX2, picY2, picWidth2, picHeight2);
       On1 = true;
@@ -268,6 +272,7 @@ void mousePressed() {
   //
   if (mouseX>la3X && mouseX<la3X+la3W && mouseY>la3Y && mouseY<la3Y+la3H) 
     if (On3 == true) {
+      noStroke();
       rect(rectXPic1, rectYPic1, rectWidthPic1, rectHeightPic1);
       //image(pic3, picX3, picY3, picWidth2, picHeight2);
       On1 = true;
@@ -279,6 +284,16 @@ void mousePressed() {
       On3 = true;
     }
   //
+  if (mouseX>crecX && mouseX<crecX+crecW && mouseY>crecY && mouseY<crecY+crecH) {
+    fill(white);
+    ellipse(circaX, circaY, circaD, circaD);
+  }
+  //
+  if (mouseX>trecX && mouseX<trecX+trecW && mouseY>trecY && mouseY<trecY+trecH) {
+    fill(white);
+    triangle(triaX1, triaY1, triaX2, triaY2, triaX3, triaY3);
+  }
+    
   if ( mouseX>quitButtonX && mouseX<quitButtonX+quitButtonWidth && mouseY>quitButtonY && mouseY<quitButtonY+quitButtonHeight ) exit();
   //
   if (mouseX>resetX && mouseX<resetX+resetW && mouseY>resetY && mouseY<resetY+resetH) {
